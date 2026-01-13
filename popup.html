@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitch Live Channels</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Twitch Live Channels</h1>
+      <button id="refreshBtn" class="refresh-btn">↻</button>
+    </div>
+
+    <div id="setupSection" class="setup-section">
+      <div class="setup-box">
+        <h2>Connect with Twitch</h2>
+        <p>Click the button below to authorize this extension with your Twitch account.</p>
+        <button id="connectBtn" class="btn-primary btn-twitch">Connect with Twitch</button>
+        <p id="authError" class="error"></p>
+        
+        <div class="setup-notes">
+          <h3>First Time Setup</h3>
+          <p>If you're building this yourself, you need to:</p>
+          <ol>
+            <li>Go to <a href="https://dev.twitch.tv/console" target="_blank">Twitch Console</a></li>
+            <li>Create a new application</li>
+            <li>Add OAuth Redirect URL: <code>https://<span id="extensionId">your-extension-id</span>.chromiumapp.org/</code></li>
+            <li>Copy the Client ID and paste it in the code (CLIENT_ID constant)</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div id="mainContent" class="main-content hidden">
+      <div class="stats">
+        <span id="onlineCount" class="stat">0 online</span>
+        <span id="lastUpdated" class="last-updated"></span>
+      </div>
+
+      <div id="streamersList" class="streamers-list">
+        <div class="loading">Loading...</div>
+      </div>
+
+      <button id="logoutBtn" class="btn-secondary">Disconnect</button>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
