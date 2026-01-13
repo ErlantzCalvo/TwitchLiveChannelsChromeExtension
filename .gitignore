@@ -1,6 +1,5 @@
 *.sh
 *.py
-*.md
 *.zip
 UploadStore/*
 config.js
